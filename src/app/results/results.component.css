@@ -1,0 +1,84 @@
+.info {
+  font-size: 30;
+  color: white;
+}
+
+.text-field {
+  background-color: white;
+  border-color: lightgray;
+}
+
+.btn-grey {
+  background-color: #d0d0d0;
+  border-radius: 1;
+  color: white;
+  /*font-size: 24;*/
+  vertical-align: middle;
+  width: 80%;
+}
+
+.doctor .doctor-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.doctor label {
+  color: black;
+  font-size: 10px;
+}
+.doctor .doctor-speciality {
+  font-size: 12px;
+  color: #777777;
+}
+.doctor .fa-star {
+  color: #dfca5d;
+  background-color: #dfca5d;
+}
+.doctor .btn {
+  background-color: #00c3b0;
+  height: 20;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0;
+}
+
+Scrollview {
+  background-color: white;
+}
+
+.switch-section {
+  height: 70;
+}
+
+.switch-button {
+  background-color: #ff6000;
+  color: white;
+  height: 45;
+}
+
+.filter-button {
+  height: 45;
+}
+
+.list-header {
+  box-shadow: 5px 10px #888888;
+}
+
+.return-btn {
+  background-color: #00c3b0;
+  color: white;
+}
+
+.back-text {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.yellow {
+  color: #dfca5d;
+}
+.gray {
+  color: #d0d0d0;
+}

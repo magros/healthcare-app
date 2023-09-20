@@ -1,0 +1,73 @@
+.calendar-day {
+  color: white;
+  text-align: center;
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 2px;
+  padding-top: 5px;
+  margin: 5px;
+  height: 60px;
+  background-color: #00C3B0;
+}
+.calendar-day.hidden {
+  border-color: white;
+  color: white;
+}
+
+.field-label {
+  color: gray;
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  margin-top: 35px;
+}
+
+.calendar-header {
+  color: #00C3B0;
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 30px
+}
+
+.calendar-content {
+  padding-left: 15;
+  padding-right: 15;
+}
+
+.drop-d {
+  padding: 5;
+  font-size: 15px;
+  color: gray;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.bordered {
+  border-color: gray;
+  border-width: 1;
+  border-style: solid;
+}
+
+.day-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px
+}
+
+.calendar {
+  margin-top: 15;
+}
+
+.currentday {
+  background-color: #222B54;
+  color: white;
+}
+
+.invalid {
+  background-color: white;
+  color: gray;
+}
+
+.text-gray {
+  color: gray;
+}

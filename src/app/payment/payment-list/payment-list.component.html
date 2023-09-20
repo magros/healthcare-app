@@ -1,0 +1,89 @@
+<ListView
+  *ngIf="cards.length"
+  class="list-content"
+  height="90%"
+  width="100%"
+  [items]="cards"
+  separatorColor="transparent"
+  (itemTap)="onTapItem($event)"
+>
+  <ng-template let-card="item" let-i="index">
+    <GridLayout columns="60,5,5,5,5,100" rows="*" minHeight="55" height="55">
+      <Label
+        height="30"
+        *ngIf="card.type === 'VISA'"
+        col="0"
+        row="0"
+        [text]="'fa-cc-visa' | fonticon"
+        class="fa card-provider"
+      ></Label>
+      <Label
+        height="30"
+        *ngIf="card.type === 'MASTERCARD'"
+        col="0"
+        row="0"
+        [text]="'fa-cc-mastercard' | fonticon"
+        class="fa card-provider"
+      ></Label>
+      <Label
+        height="30"
+        *ngIf="card.type === 'AMEX'"
+        col="0"
+        row="0"
+        [text]="'fa-cc-amex' | fonticon"
+        class="fa card-provider"
+      ></Label>
+      <Label
+        height="30"
+        *ngIf="card.type === 'OTHER'"
+        col="0"
+        row="0"
+        [text]="'fa-credit-card' | fonticon"
+        class="fa card-provider"
+      ></Label>
+      <Label
+        height="30"
+        col="1"
+        row="0"
+        [text]="'fa-circle' | fonticon"
+        class="fa credit-card-bullet"
+      ></Label
+      >|
+      <Label
+        height="30"
+        col="2"
+        row="0"
+        [text]="'fa-circle' | fonticon"
+        class="fa credit-card-bullet"
+      ></Label>
+      <Label
+        height="30"
+        col="3"
+        row="0"
+        [text]="'fa-circle' | fonticon"
+        class="fa credit-card-bullet"
+      ></Label>
+      <Label
+        height="30"
+        col="4"
+        row="0"
+        [text]="'fa-circle' | fonticon"
+        class="fa credit-card-bullet"
+      ></Label>
+      <Label
+        height="30"
+        col="5"
+        row="0"
+        [text]="card.number"
+        class="credit-card"
+      ></Label>
+    </GridLayout>
+  </ng-template>
+</ListView>
+<StackLayout *ngIf="!cards.length" class="m-b-20">
+  <Label
+    class="info-label"
+    text="Aún no tienes agregado algún método de pago"
+    textWrap="true"
+  ></Label>
+</StackLayout>

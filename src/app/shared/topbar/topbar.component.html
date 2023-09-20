@@ -1,0 +1,35 @@
+<ActionBar style="background-color: #00C3B0; box-shadow: 0 4px 2px -2px gray;">
+  <DockLayout
+    verticalAlignment="center"
+    horizontalAlignment="left"
+    stretchLastChild="true"
+  >
+    <Image
+      dock="left"
+      src="res://icon"
+      width="10%"
+      height="40"
+      verticalAlignment="center"
+      (tap)="onToggleMenu()"
+    ></Image>
+    <StackLayout
+      dock="left"
+      orientation="horizontal"
+      horizontalAlignment="right"
+      verticalAlignment="center"
+      width="90%"
+    >
+      <Label class="fa action-bar-icon"
+        [text]="'fa-search' | fonticon"
+        (tap)="navigateToSearch()"></Label>
+      <Label class="fa action-bar-icon"
+        [text]="'fa-heart' | fonticon"
+        (tap)="navigateToFavs()"></Label>
+      <Label
+        class="fa action-bar-icon"
+        [text]="'fa-calendar' | fonticon"
+        (tap)="navigateToAppointments()"
+      ></Label>
+    </StackLayout>
+  </DockLayout>
+</ActionBar>

@@ -1,0 +1,46 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout *ngIf="!isBusy">
+  <ns-medic-details-nav [doctorId]="doctorId"></ns-medic-details-nav>
+  <StackLayout class="appointment-content">
+    <Label
+      class="appointment-confirmation-label"
+      text="CONFIRMACIÓN DE CITA"
+    ></Label>
+    <Label class="appointment-info-label" text="Detalles"></Label>
+    <StackLayout class="hr-dark m-10"></StackLayout>
+    <Label
+      class="appointment-details"
+      [text]="'Fecha: ' + (date | date: 'dd/MM/yyyy')"
+    ></Label>
+    <Label class="appointment-details" [text]="'Hora: ' + hour"></Label>
+    <Label
+      class="appointment-details"
+      [text]="'Consultorio: ' + doctorOffice.description"
+    ></Label>
+    <Label
+      class="appointment-details"
+      [text]="'Dirección: ' + doctorOffice.address"
+      [textWrap]="true"
+    ></Label>
+    <Label
+      class="appointment-details"
+      [text]="'Teléfono: ' + doctorOffice.contact_phone"
+    ></Label>
+    <Label
+      class="appointment-details"
+      [text]="'Costo: $' + service.cost"
+    ></Label>
+    <StackLayout class="hr-dark m-10"></StackLayout>
+    <Button
+      class="btn"
+      text="CONFIRMAR Y PAGAR"
+      (tap)="confirmAppointment()"
+    ></Button>
+  </StackLayout>
+</StackLayout>
+<FlexboxLayout *ngIf="isBusy" justifyContent="center" alignItems="center">
+  <StackLayout>
+    <Label text="Agendando cita..." style="font-size: 15"></Label>
+    <ActivityIndicator [busy]="isBusy"></ActivityIndicator>
+  </StackLayout>
+</FlexboxLayout>

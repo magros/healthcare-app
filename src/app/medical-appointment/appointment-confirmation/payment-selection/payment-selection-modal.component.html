@@ -1,0 +1,7 @@
+<StackLayout width="300" height="450" class="m-l-400">
+    <Label text="Seleccione un método de pago" class="title" horizontalAlignment="center"></Label>
+    <StackLayout horizontalAlignment="center" class="m-l-400">
+        <ns-payment-list (tapItem)="itemTapped($event)" horizontalAlignment="center"></ns-payment-list>
+    </StackLayout>
+    <Button (tap)="closeModal()" text="Cancelar"></Button>
+</StackLayout>

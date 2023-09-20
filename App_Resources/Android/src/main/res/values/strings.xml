@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+    <string name="app_name">HealthManager</string>
+    <string name="title_activity_kimera">HealthManager</string>
+    <string name="ucrop_label_edit_photo">Recortar imagen</string>
+</resources>

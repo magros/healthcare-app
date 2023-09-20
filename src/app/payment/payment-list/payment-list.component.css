@@ -1,0 +1,32 @@
+
+.credit-card {
+  padding-left: 5;
+  color: #222B54;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.credit-card-bullet {
+  margin-top: 5;
+  padding-top: 10;
+  font-size: 4px;
+  font-weight: bold;
+  color: #222B54
+}
+
+.card-provider {
+  padding-top: 5;
+  padding-left: 10;
+  font-size: 25px;
+  color: #222B54;
+}
+
+.list-content {
+  margin-right: 20;
+  margin-left: 20;
+}
+
+.info-label {
+  font-weight: bold;
+  font-size: 14px;
+}

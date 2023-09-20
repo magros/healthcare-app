@@ -1,0 +1,74 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout *ngIf="!isBusy">
+  <StackLayout
+    style="padding-left: 10%; padding-right: 10%; margin-bottom: 20; margin-top:20"
+    width="90%"
+    horizontalAlignment="left"
+    class="appointment-list-header"
+  >
+    <Label text="MIS CITAS MÉDICAS"></Label>
+    <StackLayout class="hr-dark m-10"></StackLayout>
+  </StackLayout>
+  <ListView
+    scrollBarIndicatorVisible="false"
+    width="90%"
+    height="100%"
+    [items]="appointments"
+    style="padding-right: 10%; padding-left:10%"
+  >
+    <ng-template let-appoint="item" let-index="index" scrollBarIndicatorVisible="false">
+      <GridLayout columns="100,*" rows="*,*,*,*,*,*">
+        <Label row="0" col="0" text="Fecha:" class="appointment-label"></Label>
+        <Label
+          row="0"
+          col="1"
+          [text]="appoint.date | date: 'dd/MM/yyyy'"
+          class="appointment-light-label"
+        ></Label>
+        <Label row="1" col="0" text="Hora: " class="appointment-label"></Label>
+        <Label
+          row="1"
+          col="1"
+          [text]="appoint.hour | slice: 0:5"
+          class="appointment-light-label"
+        ></Label>
+        <Label row="2" col="0" text="Doctor:" class="appointment-label"></Label>
+        <Label
+          row="2"
+          col="1"
+          [text]="appoint.name"
+          class="appointment-light-label"
+        ></Label>
+        <Label row="3" col="0" text="Lugar:" class="appointment-label"></Label>
+        <Label
+          row="3"
+          col="1"
+          [text]="appoint.address"
+          class="appointment-light-label"
+          textWrap="true"
+        ></Label>
+        <Button
+          row="4"
+          col="0"
+          colSpan="2"
+          verticalAlignment="center"
+          class="btn-details"
+          (tap)="goToDetails(index)"
+          text="MÁS DETALLES"
+        ></Button>
+        <StackLayout
+          row="5"
+          col="0"
+          colSpan="2"
+          class="hr-dark m-10"
+        ></StackLayout>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</StackLayout>
+<FlexBoxLayout *ngIf="isBusy" justifyContent="center" alignItems="center">
+  <StackLayout>
+    <ActivityIndicator [busy]="isBusy"></ActivityIndicator>
+    <Label class="back-text" text="Obteniendo agenda..."></Label>
+  </StackLayout>
+</FlexBoxLayout>

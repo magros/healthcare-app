@@ -1,0 +1,31 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout>
+  <StackLayout class="details-content">
+    <Label class="title" text="DETALLE DE LA CITA"> </Label>
+    <GridLayout class="m-t-10" height="220" columns="*,*" rows="25,25,25,25,25,40">
+      <Label class="grid-title" text="Fecha:" row="0" col="0"></Label>
+      <Label class="grid-text" [text]="appointDetail.date | date:'dd/MM/yyyy'" row="0" col="1"></Label>
+      <Label class="grid-title" text="Hora:" row="1" col="0"></Label>
+      <Label class="grid-text" [text]="appointDetail.hour | slice: 0:5" row="1" col="1"></Label>
+      <Label class="grid-title" text="Doctor:" row="2" col="0"></Label>
+      <Label class="grid-text" [text]="appointDetail.name" row="2" col="1"></Label>
+      <Label class="grid-title" text="Servicio:" row="3" col="0"></Label>
+      <Label class="grid-text" [text]="appointDetail.service" row="3" col="1"></Label>
+      <Label class="grid-title" text="Costo:" row="4" col="0"></Label>
+      <Label class="grid-text" [text]="'$' + appointDetail.cost" row="4" col="1"></Label>
+      <Label class="grid-title" text="Domicilio:" row="5" col="0"></Label>
+      <Label class="grid-text" [text]="appointDetail.address" textWrap="true" row="5" col="1"></Label>
+    </GridLayout>
+    <Label class="middle-title" text="UBICACIÓN DEL CONSULTORIO"> </Label>
+  </StackLayout>
+  <StackLayout class="m-t-5">
+    <MapView
+      (mapReady)="onMapReady($event)"
+      [zoom]="zoom"
+      [latitude]="latitude"
+      [longitude]="longitude"
+      [minZoom]="minZoom"
+      [maxZoom]="maxZoom"
+    ></MapView>
+  </StackLayout>
+</StackLayout>

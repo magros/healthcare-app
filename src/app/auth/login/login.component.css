@@ -1,0 +1,55 @@
+
+.page {
+    background-color: #00C3B0;
+}
+
+.info {
+    font-size: 30px;
+    color: white;
+}
+
+#loginBtn {
+    margin-top: 10px;
+    border: none;
+}
+
+#loginBtn, .text-field {
+    width: 70%;
+}
+
+.activity-indicator{
+    color: #FF6D15;
+}
+
+.btn-flat {
+    background: transparent;
+    border-color: transparent;
+    border-width: 1;
+}
+
+.btn-blue-facebook {
+    background-color: #4267b2;
+}
+
+.btn-red {
+    background-color: #DB4437;
+}
+
+.transparent {
+    background-color: transparent;
+    border-width: 0;
+    z-index: 0
+}
+
+.strong-label {
+    font-size: 12px;
+    color: white;
+}
+
+.login-field {
+    border-radius: 5px;
+    background-color: white;
+    placeholder-color: gray;
+    padding-left: 45px;
+    width: 70%;
+  }

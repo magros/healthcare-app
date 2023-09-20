@@ -1,0 +1,171 @@
+<ns-action-bar></ns-action-bar>
+<ScrollView height="100%">
+  <StackLayout *ngIf="doctorDetails">
+    <GridLayout
+      columns="6*,*,*"
+      rows="8*,3*"
+      width="100%"
+      height="350"
+      style="background-color: rgb(230, 230, 230)"
+    >
+      <StackLayout col="0" colspan="3" row="0">
+        <Label
+          class="fa"
+          [text]="'fa-chevron-left' | fonticon"
+          (tap)="goBack()"
+          style="font-size: 30px; padding: 60px 0 0 30px; color: rgb(107, 107, 107)"
+        ></Label>
+        <Image
+          [src]="doctorDetails.avatar_url"
+          height="180"
+          width="180"
+          style="border-radius: 100%"
+        ></Image>
+      </StackLayout>
+
+      <StackLayout row="1" col="0" class="m-t-10">
+        <Label
+          [text]="doctorDetails.name"
+          class="doctor-name"
+          style="padding: 0 30px"
+        ></Label>
+        <Label
+          [text]="doctorDetails.specialities[0].description"
+          style="padding: 0 30px"
+        ></Label>
+        <Label
+          [text]="
+            'Cédula profesional: ' +
+            doctorDetails.professional_license.substr(0, 6)
+          "
+          style="padding: 10px 30px"
+        ></Label>
+      </StackLayout>
+      <GridLayout
+        columns="*,*"
+        rows="3*,3*"
+        row="1"
+        col="1"
+        colSpan="2"
+        class="m-t-10"
+        width="100%"
+      >
+        <StackLayout row="0" col="0">
+          <Label
+            class="fa"
+            [text]="'fa-heart' | fonticon"
+            (tap)="setDoctorAsFavorite(doctorDetails.id)"
+            style="font-size: 27px; color: #222B54"
+          ></Label>
+        </StackLayout>
+        <StackLayout row="0" col="1">
+          <Label
+            class="fa"
+            [text]="'fa-share' | fonticon"
+            (tap)="shareDoctorProfileLink()"
+            style="font-size: 27px; color: #222B54"
+          ></Label>
+        </StackLayout>
+        <StackLayout row="1" col="0" colSpan="2">
+          <Label
+            verticalAlignment="center"
+            text="{{
+              doctorDetails.opinions.length +
+                (doctorDetails.opinions.length != 1 ? ' opiniones' : ' opinión')
+            }}"
+            style="padding-left: -2.5px"
+          ></Label>
+          <StackLayout
+            verticalAlignment="center"
+            orientation="horizontal"
+            style="padding-left: -2.5px"
+          >
+            <Label
+              class="fa"
+              *ngFor="let number of [1, 2, 3, 4, 5]"
+              [text]="'fa-star' | fonticon"
+              [ngClass]="{
+                yellow: number <= doctorDetails.rate,
+                gray: number > doctorDetails.rate
+              }"
+              style="margin-right: 2px"
+            ></Label>
+          </StackLayout>
+        </StackLayout>
+      </GridLayout>
+    </GridLayout>
+
+    <Button
+      class="btn btn-primary text-white m-t-30 m-b-30 font-weight-bold"
+      text="AGENDAR CITA"
+      width="80%"
+      style="margin-bottom: 40px; margin-top: 40px; font-size: 18px"
+      (tap)="navigateToCalendar(doctorDetails.id)"
+    ></Button>
+    <Label class="hr m-t-20 m-b-20"></Label>
+    <Label text="EXPERIENCIA" class="title p-l-15 m-b-20 m-t-20"></Label>
+    <Label
+      textWrap="true"
+      class="p-l-15 p-r-15"
+      [text]="doctorDetails.experience_summary"
+    ></Label>
+    <Label text="SERVICIOS" class="title p-l-15 m-b-20 m-t-20"></Label>
+    <Label
+      *ngFor="let service of doctorDetails.medical_services"
+      textWrap="true"
+      style="font-size: 16; font-weight: bold"
+      class="p-l-15 p-r-15 m-b-20"
+      [text]="service.name"
+    ></Label>
+    <Label
+      text="COMENTARIOS"
+      class="title p-l-15 m-b-20 m-t-20"
+      *ngIf="doctorDetails.opinions.length"
+    ></Label>
+
+    <StackLayout
+      orientation="vertical"
+      *ngFor="let opinion of doctorDetails.opinions"
+    >
+      <StackLayout orientation="horizontal">
+        <Label
+          [text]="opinion.commenter_name"
+          style="font-weight: bold; font-size: 17px"
+          class="p-l-15 m-b-0"
+        ></Label>
+        <StackLayout orientation="horizontal" class="p-l-10 m-t-5">
+          <Label
+            class="fa"
+            *ngFor="let number of [1, 2, 3, 4, 5]"
+            [text]="'fa-star' | fonticon"
+            [ngClass]="{
+              yellow: number <= opinion.rate,
+              gray: number > opinion.rate
+            }"
+            style="margin-right: 2px"
+          ></Label>
+        </StackLayout>
+      </StackLayout>
+      <Label
+        [text]="opinion.date"
+        style="font-size: 10px"
+        class="p-l-15 p-r-15 m-b-10 m-t-0"
+      ></Label>
+      <Label
+        textWrap="true"
+        style="font-size: 16;"
+        class="p-l-15 p-r-15 m-b-20 m-t-0"
+        [text]="opinion.commentaries"
+      ></Label>
+    </StackLayout>
+
+    <Button
+      class="btn btn-primary text-white m-t-30 m-b-30 font-weight-bold"
+      text="AGREGAR COMENTARIO"
+      width="80%"
+      *ngIf="canComment()"
+      style="margin-bottom: 40px; margin-top: 40px; font-size: 18px"
+      (tap)="navigateToComment(doctorDetails.id)"
+    ></Button>
+  </StackLayout>
+</ScrollView>

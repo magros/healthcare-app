@@ -1,0 +1,24 @@
+<StackLayout width="400" height="250">
+  <Label
+    class="title"
+    text="Seleccione el método que quiere agregar"
+    horizontalAlignment="center"
+  ></Label>
+  <Label
+    class="method-label"
+    text="Tarjeta"
+    (tap)="addNewCard()"
+    horizontalAlignment="center"
+  ></Label>
+  <StackLayout
+    orientation="horizontal"
+    horizontalAlignment="center"
+    class="m-t-50"
+  >
+    <Button
+      text="Cancelar"
+      horizontalAlignment="right"
+      (tap)="closeModal()"
+    ></Button>
+  </StackLayout>
+</StackLayout>

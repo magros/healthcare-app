@@ -1,0 +1,85 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout *ngIf="!isBusy && days">
+  <ns-medic-details-nav [doctorId]="doctorId"></ns-medic-details-nav>
+  <StackLayout class="calendar-detail-content">
+    <StackLayout class="calendar-detail-head">
+      <Label class="calendar-label" text="HORARIO"></Label>
+      <Label
+        class="calendar-sublabel"
+        text="Selecciona el horario de tu cita"
+      ></Label>
+    </StackLayout>
+    <ScrollView scrollBarIndicatorVisible="false" height="100%">
+      <!-- <StackLayout orientation="horizontal">
+        <Label
+          width="33.33%"
+          class="calendar-day"
+          horizonalAlignment="center"
+          text="Lun"
+        ></Label>
+      </StackLayout> -->
+      <StackLayout orientation="horizontal">
+        <!-- First day -->
+        <StackLayout width="33.33%">
+          <Label class="calendar-day" [text]="days[0].weekday"></Label>
+          <Label
+            class="calendar-day calendar-day-emph"
+            [text]="days[0].day"
+          ></Label>
+          <Label class="calendar-day" [text]="days[0].month"></Label>
+          <Label
+            *ngFor="let hour of days[0].schedule"
+            [class]="
+              'btn btn-hour ' + (hour.status == 'available' ? '' : 'disabled')
+            "
+            horizonalAlignment="center"
+            (tap)="navigateToConfirmation(hour.hour, days[0].date, hour.status)"
+            [text]="hour.hour"
+          ></Label>
+        </StackLayout>
+        <!-- Second day -->
+        <StackLayout width="33.33%" horizonalAlignment="center">
+          <Label [text]="days[1].weekday" class="calendar-day"></Label>
+          <Label
+            [text]="days[1].day"
+            class="calendar-day calendar-day-emph"
+          ></Label>
+          <Label [text]="days[1].month" class="calendar-day"></Label>
+          <Label
+            *ngFor="let hour of days[1].schedule"
+            [class]="
+              'btn btn-hour ' + (hour.status == 'available' ? '' : 'disabled')
+            "
+            horizonalAlignment="center"
+            (tap)="navigateToConfirmation(hour.hour, days[1].date, hour.status)"
+            [text]="hour.hour"
+          ></Label>
+        </StackLayout>
+        <!-- Third day -->
+        <StackLayout width="33.33%">
+          <Label class="calendar-day" [text]="days[2].weekday"></Label>
+          <Label
+            [text]="days[2].day"
+            class="calendar-day calendar-day-emph"
+          ></Label>
+          <Label [text]="days[2].month" class="calendar-day"></Label>
+          <Label
+            *ngFor="let hour of days[2].schedule"
+            [class]="
+              'btn btn-hour ' + (hour.status == 'available' ? '' : 'disabled')
+            "
+            horizonalAlignment="center"
+            (tap)="navigateToConfirmation(hour.hour, days[2].date, hour.status)"
+            [text]="hour.hour"
+          ></Label>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+</StackLayout>
+<FlexboxLayout *ngIf="isBusy" justifyContent="center" alignItems="center">
+  <StackLayout>
+    <ActivityIndicator [busy]="isBusy"></ActivityIndicator>
+    <Label text="Obteniendo horarios..."></Label>
+  </StackLayout>
+</FlexboxLayout>

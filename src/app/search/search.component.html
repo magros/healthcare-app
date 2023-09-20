@@ -1,0 +1,76 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout style="width: 100%; padding: 30px 50px" horizontalAlignment="left">
+  <ScrollView scrollBarIndicatorVisible="false" height="100%">
+    <StackLayout>
+      <Label class="field-label" text="ESPECIALIDAD"></Label>
+      <StackLayout class="drop-down-border">
+        <DropDown
+          #spec
+          [items]="specs"
+          [(ngModel)]="specSelectedIndex"
+          class="drop-down"
+          hint="Seleccionar"
+        ></DropDown>
+      </StackLayout>
+      <Label class="field-label" text="UBICACIÓN"></Label>
+      <StackLayout class="drop-down-border">
+        <DropDown
+          [items]="locations"
+          [(ngModel)]="locSelectedIndex"
+          class="drop-down"
+          hint="Seleccionar"
+          (selectedIndexChanged)="onLocChange($event)"
+        ></DropDown>
+      </StackLayout>
+      <Label
+        class="field-label"
+        text="ASEGURADORA"
+        *ngIf="activeFilters"
+      ></Label>
+      <StackLayout class="drop-down-border" *ngIf="activeFilters">
+        <DropDown
+          #assu
+          [(ngModel)]="insuranceSelectedIndex"
+          [items]="assuranceCompanies"
+          class="drop-down"
+          hint="Seleccionar"
+        ></DropDown>
+      </StackLayout>
+      <Label class="field-label" text="HOSPITAL" *ngIf="activeFilters"></Label>
+      <StackLayout class="drop-down-border" *ngIf="activeFilters">
+        <DropDown
+          #hosp
+          [items]="hospitalList"
+          [(ngModel)]="hospSelectedIndex"
+          class="drop-down"
+          hint="Seleccionar"
+        ></DropDown>
+      </StackLayout>
+      <Label class="field-label" text="TIPO DE BÚSQUEDA"></Label>
+
+      <StackLayout class="drop-down-border m-b-10">
+        <DropDown
+          #stype
+          [items]="searchOptions"
+          [(ngModel)]="searchSelectedIndex"
+          class="drop-down"
+          hint="Seleccionar"
+        ></DropDown>
+      </StackLayout>
+      <Button
+        width="100%"
+        class="btn btn-blue-dark filter-btn"
+        [text]="filterBtnText"
+        (tap)="toggleFilters()"
+      ></Button>
+
+      <Button
+        class="btn btn-primary"
+        text="BUSCAR"
+        (tap)="navigateToResults()"
+        style="margin: 50px 0 0 0; font-weight: bold"
+      >
+      </Button>
+    </StackLayout>
+  </ScrollView>
+</StackLayout>

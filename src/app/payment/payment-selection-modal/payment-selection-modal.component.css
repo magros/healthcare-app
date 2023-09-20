@@ -1,0 +1,21 @@
+FlexboxLayout {
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 20;
+}
+
+
+.title {
+  color: #00C3B0;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20;
+}
+
+.method-label {
+  color: #222B54;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20;
+}

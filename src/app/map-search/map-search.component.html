@@ -1,0 +1,51 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout *ngIf="offices || !busy">
+  <StackLayout
+    orientation="horizontal"
+    horizontalAlignment="center"
+    class="switch-section"
+  >
+    <Button
+      text="{{ 'fa-list' | fonticon }} LISTA"
+      class="fa switch-button"
+      (tap)="navigateToResultList()"
+    ></Button>
+    <Button
+      text="FILTRAR BÚSQUEDA"
+      class="filter-button"
+      (tap)="navigateToFilters()"
+    ></Button>
+  </StackLayout>
+  <MapView
+    #mapView
+    (mapReady)="onMapReady($event)"
+    (markerSelect)="onMarkerEvent($event)"
+    (markerInfoWindowTapped)="navigateToDoctor($event)"
+    [latitude]="latitude"
+    [longitude]="longitude"
+    [zoom]="zoom"
+    [minZoom]="minZoom"
+    [maxZoom]="maxZoom"
+  ></MapView>
+</StackLayout>
+<FlexBoxLayout
+  *ngIf="!offices || isBusy"
+  justifyContent="center"
+  alignItems="center"
+>
+  <StackLayout *ngIf="!offices && !isBusy">
+    <Label
+      class="back-text"
+      text="No hay resultados que coincidan con los filtros"
+    ></Label>
+    <Button
+      class="return-btn"
+      text="Regresar a búsqueda"
+      (tap)="getBack()"
+    ></Button>
+  </StackLayout>
+  <StackLayout *ngIf="isBusy">
+    <ActivityIndicator [busy]="isBusy"> </ActivityIndicator>
+    <Label text="Buscando..."></Label>
+  </StackLayout>
+</FlexBoxLayout>

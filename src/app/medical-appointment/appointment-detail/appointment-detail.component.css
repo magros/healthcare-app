@@ -1,0 +1,26 @@
+.details-content {
+  margin-right: 25;
+  margin-left: 25;
+  margin-top: 10;
+}
+
+.title {
+  color: #00C3B0;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.middle-title {
+  color: #00C3B0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.grid-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.grid-text {
+  font-size: 16px;
+}

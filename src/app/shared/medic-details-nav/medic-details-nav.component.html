@@ -1,0 +1,17 @@
+<StackLayout>
+  <StackLayout class="appointment-header" width="100%" orientation="horizontal">
+    <Label
+      verticalAlignment="center"
+      class="fa back-icon"
+      [text]="'fa-chevron-left' | fonticon"
+      (tap)="goBack()"
+    ></Label>
+    <StackLayout>
+        <Label class="dr-name-label" [text]="doctorIdentity.name | uppercase"></Label>
+        <Label [text]="doctorIdentity.speciality | uppercase"></Label>
+        <Label [text]="'Cédula profesional: ' + doctorIdentity.professionalLicense"></Label>
+    </StackLayout>
+
+  </StackLayout>
+  <StackLayout class="hr-dark m-10"></StackLayout>
+</StackLayout>

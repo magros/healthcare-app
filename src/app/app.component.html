@@ -1,0 +1,90 @@
+<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
+<RadSideDrawer>
+  <StackLayout tkDrawerContent>
+    <ScrollView style="background-color: white" height="100%">
+      <StackLayout width="100%" height="100%">
+        <StackLayout class="sidedrawer-header">
+          <Label
+            horizontalAlignment="center"
+            verticalAlignment="center"
+            class="drawer-header header-title"
+            text="Health"
+          ></Label>
+          <Label
+            horizontalAlignment="center"
+            verticalAlignment="center"
+            class="drawer-header header-subtitle"
+            text="Manager"
+          ></Label>
+        </StackLayout>
+        <StackLayout class="hr-light m-1"></StackLayout>
+        <StackLayout orientation="horizontal" class="sidedrawer-profile">
+          <StackLayout verticalAlignment="center" class="p-r-15 p-l-15">
+            <Image
+              [src]="userData.avatar_url"
+              height="75"
+              width="75"
+              style="border-radius:50%"
+            ></Image>
+          </StackLayout>
+          <StackLayout verticalAlignment="center">
+            <Label
+              horizontalAlignment="center"
+              class="user-profile-title"
+              [text]="userData.name"
+            ></Label>
+            <StackLayout
+              horizontalAlignment="center"
+              orientation="horizontal"
+              class="since-profile-title"
+            >
+              <Label text="Miembro desde "></Label>
+              <Label text="{{ userData.created_at | date: 'yyyy' }}"></Label>
+            </StackLayout>
+          </StackLayout>
+        </StackLayout>
+        <StackLayout class="sidedrawer-navigation">
+          <Label
+            class="sidedrawer-navigation"
+            text="Perfil"
+            (tap)="goToProfile()"
+          ></Label>
+          <Label
+            class="sidedrawer-navigation"
+            text="Pagos"
+            (tap)="goToPayments()"
+          ></Label>
+          <Label
+            class="sidedrawer-navigation"
+            text="Citas"
+            (tap)="goToAppointments()"
+          ></Label>
+          <!-- <Label class="sidedrawer-navigation" text="Ayuda" (tap)="logout()"></Label>
+            <Label class="sidedrawer-navigation" text="Contacto" (tap)="logout()"></Label> -->
+          <Label
+            class="sidedrawer-navigation"
+            text="Aviso de privacidad"
+            (tap)="goNoticeOfPrivacy()"
+          ></Label>
+          <Label
+            class="sidedrawer-navigation"
+            text="Cerrar sesión"
+            (tap)="logout()"
+          ></Label>
+        </StackLayout>
+        <StackLayout
+          class="m-t-10"
+          orientation="horizontal"
+          class="since-profile-title"
+          class="sidedrawer-version"
+        >
+          <Label text="v"></Label>
+          <Label [text]="version"></Label>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+  <StackLayout tkMainContent>
+    <page-router-outlet></page-router-outlet>
+  </StackLayout>
+</RadSideDrawer>

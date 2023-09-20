@@ -1,0 +1,93 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout *ngIf="!isBusy">
+  <ns-medic-details-nav [doctorId]="doctorId"></ns-medic-details-nav>
+  <ScrollView height="80%">
+    <StackLayout class="calendar-content">
+      <Label class="calendar-header" text="CALENDARIO"></Label>
+      <Label class="text-gray" text="Selecciona día para ver horarios."></Label>
+
+      <StackLayout width="100%">
+        <StackLayout>
+          <Label class="field-label" text="Selecciona consultorio"></Label>
+          <StackLayout class="bordered">
+            <DropDown
+              class="drop-down"
+              [selectedIndex]="selectedOffice"
+              (selectedIndexChanged)="officeChanged($event)"
+              hint="Seleccionar"
+              [items]="allOffices"
+            ></DropDown>
+          </StackLayout>
+        </StackLayout>
+
+        <StackLayout>
+          <Label class="field-label" text="Selecciona servicio"></Label>
+          <StackLayout class="bordered">
+            <DropDown
+              class="drop-down"
+              hint="Seleccionar"
+              [selectedIndex]="selectedMedicalService"
+              (selectedIndexChanged)="serviceChanged($event)"
+              [items]="allServices"
+            ></DropDown>
+          </StackLayout>
+        </StackLayout>
+
+        <StackLayout>
+          <Label class="field-label" text="Selecciona mes"></Label>
+          <StackLayout class="bordered">
+            <DropDown
+              #mon
+              hint="Seleccionar"
+              class="drop-down"
+              [items]="allMonths"
+              [selectedIndex]="selectedMonthIndex"
+              (selectedIndexChanged)="changeMonth($event)"
+            ></DropDown>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+
+      <GridLayout
+        class="calendar m-b-10"
+        rows="auto,*,*,*,*,*,*"
+        columns="*,*,*,*,*,*,*"
+        minHeight="200" height="200"
+      >
+        <Label
+          width="100%"
+          heigth="100%"
+          *ngFor="let weekDay of weekDays; let i = index"
+          class="day-header"
+          [text]="weekDay"
+          row="0"
+          [col]="i"
+        ></Label>
+        <FlexBoxLayout
+          *ngFor="let day of days; let i = index"
+          [row]="getRow(i, day)"
+          [col]="day.dayInWeek"
+        >
+          <Label
+            [text]="day.dayInMonth"
+            width="100%"
+            heigth="100%"
+            (tap)="navigateToCalendarDetail(day.dayInMonth)"
+            [ngClass]="{currentday: isCurrentDay(day.dayInMonth), invalid: isInvalidDate(day.dayInMonth)}"
+            class="calendar-day"
+          ></Label>
+        </FlexBoxLayout>
+      </GridLayout>
+    </StackLayout>
+  </ScrollView>
+</StackLayout>
+<FlexBoxLayout
+  *ngIf="isBusy"
+  justifyContent="center"
+  alignItems="center"
+>
+  <StackLayout>
+    <ActivityIndicator [busy]="isBusy"> </ActivityIndicator>
+    <Label text="Cargando..."></Label>
+  </StackLayout>
+</FlexBoxLayout>

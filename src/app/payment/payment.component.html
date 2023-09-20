@@ -1,0 +1,9 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout class="payment-content">
+  <Label text="MÉTODOS DE PAGO" class="title"></Label>
+  <StackLayout heigth="90%">
+      <ns-payment-list></ns-payment-list>
+  </StackLayout>
+  <StackLayout class="hr-light m-b-5"></StackLayout>
+  <Label class="add-label" text="Agregar método de pago" (tap)="addPaymentMethod()"></Label>
+</StackLayout>

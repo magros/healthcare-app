@@ -1,0 +1,55 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout class="add-content" horizontalAlignment="left">
+  <Label text="NUEVA TARJETA" class="title"></Label>
+  <StackLayout class="m-b-10">
+    <Label class="field-label" text="Número de tarjeta"></Label>
+    <InputMask
+      class="input-field"
+      mask="[0000] [0000] [0000] [0000]"
+      (extractedValueChange)="onCardExtractedValueChange($event)"
+      (completedChange)="onCardCompletedChage($event)"
+    >
+    </InputMask>
+  </StackLayout>
+
+  <StackLayout class="m-b-10">
+    <Label class="field-label" text="Nombre en la tarjeta"></Label>
+    <TextField class="input-field"></TextField>
+  </StackLayout>
+
+  <StackLayout orientation="horizontal" class="m-b-10">
+    <StackLayout width="45%">
+      <Label class="field-label" text="Mes expiración"></Label>
+      <InputMask
+        mask="[00]"
+        (extractedValueChange)="onExpMonthExtractedValueChange($event)"
+        (completedChange)="onExpMonthCompletedChage($event)"
+        class="middle-input-field"
+      ></InputMask>
+    </StackLayout>
+    <StackLayout width="45%" style="margin-left: 9%">
+      <Label class="field-label" text="Año expiración"></Label>
+      <InputMask
+        mask="[00]"
+        (extractedValueChange)="onExpYearExtractedValueChange($event)"
+        (completedChange)="onExpYearCompletedChage($event)"
+        class="middle-input-field"
+      ></InputMask>
+    </StackLayout>
+  </StackLayout>
+  <StackLayout horizontalAlignment="left" class="m-b-10">
+    <Label class="field-label" text="CVV"></Label>
+    <InputMask
+      mask="[000]"
+      (extractedValueChange)="onCvvExtractedValueChange($event)"
+      (completedChange)="onCvvCompletedChage($event)"
+      class="ccv-field"
+    ></InputMask>
+  </StackLayout>
+
+  <Button
+    class="add-btn m-t-10"
+    (tap)="addCard()"
+    text="Guardar tarjeta"
+  ></Button>
+</StackLayout>

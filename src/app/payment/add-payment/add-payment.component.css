@@ -1,0 +1,57 @@
+.input-field {
+  border-color: #00c3b0;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  placeholder-color: gray;
+  height: 45;
+  padding-left: 45px;
+}
+
+.field-label {
+  color: #00c3b0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.ccv-field {
+  border-color: #00c3b0;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: white;
+  width: 45%;
+  placeholder-color: gray;
+  height: 45;
+  padding-left: 45px;
+}
+
+.middle-input-field {
+  border-color: #00c3b0;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  placeholder-color: gray;
+  height: 45;
+  padding-left: 45px;
+}
+
+.add-content {
+  margin-top: 15;
+  margin-left: 20;
+  margin-right: 20;
+}
+
+.title {
+  color: #00c3b0;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20;
+}
+
+.add-btn {
+  border-radius: 5px;
+  background-color: #222b54;
+  color: white;
+}

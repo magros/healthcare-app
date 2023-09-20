@@ -1,0 +1,22 @@
+.appointment-header {
+  padding-top: 20
+}
+
+.dr-name-label {
+  color: #00C3B0;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.back-icon {
+  font-size: 30px;
+  padding-right: 40px;
+  padding-left: 40px;
+  color: gray;
+  font-weight: 100;
+}
+
+.medic-info {
+  font-size: 20px;
+  color: black;
+}

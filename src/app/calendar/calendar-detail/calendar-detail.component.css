@@ -1,0 +1,42 @@
+.calendar-label {
+  color: #00C3B0;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.calendar-sublabel {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-hour {
+  background-color: #00C3B0;
+  height: 33;
+  width: 95%;
+  color: white;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.disabled{
+  background-color: #5a5860;
+}
+
+.calendar-detail-content {
+  padding-left: 15;
+  padding-right: 15;
+}
+
+.calendar-day {
+  text-align: center
+}
+
+.calendar-day-emph {
+  font-size: 35px;
+}
+
+.calendar-detail-head {
+  margin-bottom: 10
+}

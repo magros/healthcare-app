@@ -1,0 +1,41 @@
+.title {
+  color: #00c3b0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.doctor-info {
+  padding: 20px 25px;
+}
+
+.doctor-info label {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.doctor-info {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.doctor-name {
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.favorite-icon {
+  font-size: 30px;
+  color: #222b54;
+}
+
+.icon-spacing {
+  padding-right: 4;
+  padding-left: 4;
+}
+.yellow{
+  color: #DFCA5D;
+}
+.gray{
+  color: #D0D0D0;
+}

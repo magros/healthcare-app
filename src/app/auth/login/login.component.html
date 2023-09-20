@@ -1,0 +1,150 @@
+<GridLayout class="page" columns="*" rows="4.8*,4.8*,1*,1.7*,1.7*,1.7*,1*,1.7*">
+  <StackLayout
+    col="0"
+    row="0"
+    verticalAlignment="center"
+    class="text-center m-t-20"
+  >
+    <Image
+      src="~/assets/logo.png"
+      stretch="none"
+      horizontalAlignment="center"
+    ></Image>
+    <Label
+      autocapitalizationType="none"
+      class="h2 c-white text-center text-white m-t-15"
+      text="HealthManager"
+    ></Label>
+  </StackLayout>
+
+  <StackLayout [formGroup]="form" class="m-b-10" col="0" row="1">
+    <TextField
+      class="login-field m-t-5"
+      returnKeyType="next"
+      keyboardType="email"
+      autocapitalizationType="none"
+      hint="Email"
+      formControlName="email"
+      #emailEl
+    ></TextField>
+    <Label
+      *ngIf="!emailControlIsValid"
+      text="Ingresa un email valido"
+      class="m-t-5 invalid-legend"
+    ></Label>
+    <TextField
+      secure="true"
+      class="login-field m-t-5"
+      returnKeyType="done"
+      hint="Contraseña"
+      autocapitalizationType="none"
+      formControlName="password"
+      (returnPress)="onDone()"
+      #passwordEl
+    ></TextField>
+    <Label
+      *ngIf="!passwordControlIsValid"
+      text="La contraseña debe tener mínimo 8 caracteres"
+      class="m-t-5 invalid-legend"
+    ></Label>
+    <StackLayout horizontalAlignment="center">
+      <Button
+        width="70%"
+        text="Ingresar"
+        class="btn btn-md btn-blue-dark"
+        (tap)="doLogin()"
+        [isEnabled]="form.valid"
+        *ngIf="!isLoading"
+      ></Button>
+      <ActivityIndicator
+        *ngIf="isLoading"
+        [busy]="isLoading"
+      ></ActivityIndicator>
+      <Label
+        text="¿Olvidaste tu contraseña?"
+        class="strong-label transparent m-l-15"
+        *ngIf="!isLoading"
+      ></Label>
+    </StackLayout>
+  </StackLayout>
+
+  <StackLayout
+    class="hr-light m-t-5 m-b-5 width-60"
+    col="0"
+    row="2"
+  ></StackLayout>
+  <StackLayout
+    class="btn btn-md btn-blue-dark width-60"
+    verticalAlignment="middle"
+    (tap)="navigateToRegister()"
+    orientation="horizontal"
+    col="0"
+    row="3"
+  >
+    <Image src="res://icon"></Image>
+    <Label
+      style="margin-left: 15"
+      text="Crear cuenta"
+      verticalAlignment="middle"
+    ></Label>
+  </StackLayout>
+
+  <StackLayout
+    col="0"
+    row="4"
+    class="btn btn-md btn-blue-facebook width-60"
+    orientation="horizontal"
+    verticalAlignment="middle"
+  >
+    <Label
+      class="fa m-r-15"
+      verticalAlignment="middle"
+      [text]="'fa-facebook' | fonticon"
+    ></Label>
+    <Label
+      text="Ingresa con Facebook"
+      (tap)="facebookLogin()"
+      verticalAlignment="middle"
+    ></Label>
+  </StackLayout>
+
+  <!-- <StackLayout class="hr-light m-t-5 m-b-5 width-60"></StackLayout> -->
+
+  <StackLayout
+    class="btn btn-md btn-red width-60"
+    verticalAlignment="middle"
+    orientation="horizontal"
+    col="0"
+    row="5"
+  >
+    <Label
+      class="fa m-r-15"
+      verticalAlignment="middle"
+      [text]="'fa-google' | fonticon"
+    ></Label>
+    <Label
+      text="Ingresa con Google"
+      (tap)="googleLogin()"
+      verticalAlignment="middle"
+    ></Label>
+  </StackLayout>
+
+  <StackLayout
+    col="0"
+    row="6"
+    class="hr-light m-t-5 m-b-5 width-60"
+  ></StackLayout>
+  <StackLayout
+    col="0"
+    row="8"
+    width="100%"
+    backgroundColor="white"
+    style="margin: 0; bottom: 0; text-align: center; padding: 25px"
+  >
+    <Label
+      text="AVISO DE PRIVACIDAD"
+      horizontalAlignment="center"
+      verticalAlignment="bottom"
+    ></Label>
+  </StackLayout>
+</GridLayout>

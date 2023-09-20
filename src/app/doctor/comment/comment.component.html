@@ -1,0 +1,35 @@
+<ns-action-bar></ns-action-bar>
+
+<StackLayout>
+  <ns-medic-details-nav [doctorId]="doctorId"></ns-medic-details-nav>
+  <StackLayout
+    class="comment-content"
+    horizontalAlignment="center"
+    verticalAlignment="center"
+  >
+    <Label text="DEJA UN COMENTARIO" class="title m-b-10"></Label>
+    <StarRating
+      emptyBorderColor="white"
+      emptyColor="white"
+      filledBorderColor="black"
+      filledColor="yellow"
+      value="{{ value }}"
+      max="{{ max }}"
+      isindicator="false"
+      id="rating"
+      horizontalAlignment="center"
+      verticalAlignment="center"
+    ></StarRating>
+    <TextView
+      height="120"
+      class="input-field"
+      hint="Comentario"
+      [(ngModel)]="comment"
+    ></TextView>
+    <Button
+      text="Guardar comentario"
+      (tap)="saveComment()"
+      class="save-btn m-t-15"
+    ></Button>
+  </StackLayout>
+</StackLayout>

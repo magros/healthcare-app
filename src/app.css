@@ -1,0 +1,172 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import '~nativescript-theme-core/css/core.light.css';
+
+.fa {
+  font-family: FontAwesome, fontawesome-webfont;
+}
+
+.input-border {
+  padding: 4;
+  border-color: #777777;
+  border-bottom-width: 1;
+  border-top-width: 1;
+}
+
+.btn {
+  color: white;
+  border-radius: 5px;
+}
+
+.btn-blue-dark {
+  background-color: #222b54;
+}
+
+.btn-orange {
+  background-color: #ff6d15;
+  border-color: transparent;
+}
+
+.btn-grey {
+  background-color: #d0d0d0;
+  vertical-align: middle;
+}
+.btn-primary {
+  background-color: #00c3b0;
+}
+
+.btn-md {
+  height: 40;
+  font-size: 12px;
+}
+
+.btn-sm {
+  height: 30;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 15px;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-dark {
+  color: #000;
+}
+
+.text-blue-dark {
+  color: #222b54;
+}
+
+.field-label {
+  font-size: 15px;
+}
+
+.width-60 {
+  width: 60%;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.btn .fa {
+  font-size: 20px;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sidedrawer-header {
+  height: 110;
+  background-color: #383b65;
+  color: white;
+}
+
+.sidedrawer-profile {
+  height: 130;
+  color: white;
+  background-color: #383b65;
+}
+
+.sidedrawer-navigation {
+  color: black;
+  font-size: 16;
+  padding-left: 30px;
+  padding-top: 20;
+}
+
+.sidedrawer-version {
+  color: #383b65;
+  font-size: 16;
+  margin-left: 30;
+  margin-top: 70;
+}
+
+.header-title {
+  font-size: 25px;
+  margin-top: 20;
+}
+
+.header-subtitle {
+  font-size: 25px;
+}
+
+.user-profile-title {
+  font-size: 18px;
+  margin-top: 5;
+}
+
+.since-profile-title {
+  font-size: 10px;
+}
+
+.drop-down {
+  padding: 5;
+  font-size: 15;
+  color: gray;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.drop-down-border {
+  border-color: gray;
+  border-width: 1;
+  border-style: solid;
+}
+
+.text-field {
+  background-color: white;
+  border-color: lightgray;
+}
+
+.invalid-field {
+  border-width: 5px;
+  border-color: #ff4c6c;
+}
+
+.invalid-legend {
+  margin-left: 25px;
+  color: #ff4c6c;
+  font-weight: bold;
+}
+TextField {
+  placeholder-color: rgba(119, 120, 128, 0.6);
+  color: #5a5860;
+  font-size: 15px;
+}

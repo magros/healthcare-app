@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "332843650203",
+    "firebase_url": "https://healthmanager-248915.firebaseio.com",
+    "project_id": "healthmanager-248915",
+    "storage_bucket": "healthmanager-248915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332843650203:android:824beafbdd6d116d",
+        "android_client_info": {
+          "package_name": "mx.com.healthmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332843650203-pql4n3pdn5bjh4t5kk6f9sn4an70i4qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx8VTagSiYsEyUM0EZMier7TK4_vuV6uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332843650203-pql4n3pdn5bjh4t5kk6f9sn4an70i4qg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

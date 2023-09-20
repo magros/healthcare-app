@@ -1,0 +1,64 @@
+<ns-action-bar></ns-action-bar>
+<ScrollView *ngIf="!isBusy">
+  <StackLayout class="p-l-20 p-r-20 m-b-15">
+    <Label text="PERFIL" class="title m-t-10"></Label>
+    <StackLayout class="m-b-10" horizontalAlignment="center">
+      <!--            <Label class="field-label" text="Datos del usuario"></Label>-->
+      <Image
+        [src]="avatar"
+        stretch="none"
+        id="avatar"
+        style="border-radius: 100%"
+        *ngIf="avatar"
+        class="img-rounded p-l-15 p-r-15 p-t-15"
+      ></Image>
+      <ActivityIndicator *ngIf="!avatar" [busy]="!avatar"></ActivityIndicator>
+    </StackLayout>
+
+    <Button
+      text="Cambiar foto de perfil"
+      class="upload-btn"
+      (tap)="choseFile()"
+    ></Button>
+
+    <StackLayout class="hr-light m-t-15 m-b-15"></StackLayout>
+
+    <StackLayout class="m-b-10">
+      <Label class="field-label" text="Nombre completo"></Label>
+      <TextField
+        class="input-field"
+        hint="Nombre completo"
+        id="name"
+        [(ngModel)]="name"
+      ></TextField>
+      <Button
+        text="Cambiar nombre"
+        class="add-btn m-t-10"
+        (tap)="updateProfile()"
+      ></Button>
+    </StackLayout>
+
+    <StackLayout class="m-b-10">
+      <Label class="field-label" text="Cambiar contraseña"></Label>
+
+      <TextField
+        class="input-field"
+        hint="Nueva contraseña"
+        [(ngModel)]="password"
+        id="password"
+      ></TextField>
+    </StackLayout>
+
+    <Button
+      text="Cambiar contraseña"
+      class="add-btn m-t-10"
+      (tap)="updateProfile()"
+    ></Button>
+  </StackLayout>
+</ScrollView>
+<FlexBoxLayout *ngIf="isBusy" justifyContent="center" alignItems="center">
+  <StackLayout>
+    <ActivityIndicator [busy]="isBusy"> </ActivityIndicator>
+    <Label text="Actualizando..."></Label>
+  </StackLayout>
+</FlexBoxLayout>

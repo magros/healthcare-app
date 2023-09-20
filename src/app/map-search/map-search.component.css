@@ -1,0 +1,13 @@
+.switch-section {
+  height: 70;
+}
+
+.switch-button {
+  background-color: #FF6000;
+  color: white;
+  height: 45;
+}
+
+.filter-button {
+  height: 45;
+}

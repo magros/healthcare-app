@@ -1,0 +1,89 @@
+<StackLayout class="m-t-60">
+  <StackLayout class="register-header" width="100%" orientation="horizontal">
+    <Label
+      class="fa back-icn m-l-20"
+      [text]="'fa-chevron-left' | fonticon"
+      (tap)="goBack()"
+    ></Label>
+  </StackLayout>
+  <StackLayout [formGroup]="form" class="register-content">
+    <Label
+      class="page-title"
+      text="Crea una cuenta nueva"
+      horizontalAlignment="center"
+    ></Label>
+    <TextField
+      class="register-field m-t-25"
+      hint="Nombre completo"
+      id="name"
+      formControlName="name"
+    ></TextField>
+    <Label
+      *ngIf="form.hasError('required') && form.controls.name.touched"
+      text="Este campo es requerido"
+      class="invalid-legend m-l-10"
+    ></Label>
+
+    <TextField
+      class="register-field m-t-15"
+      hint="Email"
+      autocapitalizationType="none"
+      returnKeyType="next"
+      keyboardType="email"
+      formControlName="email"
+    ></TextField>
+    <Label
+      *ngIf="form.hasError('required', 'email') && form.controls.email.touched"
+      text="Este campo es requerido"
+      class="invalid-legend m-l-10"
+    ></Label>
+
+    <TextField
+      secure="true"
+      class="register-field m-t-15"
+      hint="Contraseña"
+      formControlName="password"
+    ></TextField>
+    <Label
+      *ngIf="
+        form.hasError('required', 'password') && form.controls.password.touched
+      "
+      text="La contraseña es requerida"
+      class="invalid-legend m-l-10"
+    ></Label>
+    <Label
+      *ngIf="
+        form.controls.password.errors?.minlength &&
+        form.controls.password.touched
+      "
+      text="Debe ser de un mínimo de 6 caracteres"
+      class="invalid-legend m-l-10"
+    ></Label>
+
+    <TextField
+      secure="true"
+      class="register-field m-t-15"
+      hint="Confirmar contraseña"
+      formControlName="passwordConfirm"
+    ></TextField>
+    <Label
+      *ngIf="form.hasError('mismatch')"
+      text="Las contraseñas no coinciden"
+      class="invalid-legend m-l-10"
+    ></Label>
+
+    <CheckBox
+      #terms
+      [fillColor]="'#00C3B0'"
+      text="Aceptar términos y condiciones"
+      class="checkbox m-l-20 m-t-5"
+      checked="false"
+    ></CheckBox>
+    <Button
+      class="register-button m-t-15"
+      text="Registrarse"
+      (tap)="register()"
+      [isEnabled]="form.valid"
+    ></Button>
+  </StackLayout>
+</StackLayout>
